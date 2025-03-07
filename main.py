@@ -54,23 +54,80 @@ if menu == "Puan Durumu":
 elif menu == "Maç Sonucu Gir":
     st.header("Maç Sonucu Girişi")
 
-    col1, col2 = st.columns(2)
+    # Maç seçimi için container
+    with st.container():
+        st.markdown("""
+        <style>
+        .match-container {
+            background-color: #f0f2f6;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        </style>
+        """, unsafe_allow_html=True)
 
-    with col1:
-        home_team = st.selectbox("Ev Sahibi Takım", data_manager.teams)
-        home_goals = st.number_input("Ev Sahibi Gol", min_value=0, value=0)
+        col1, col2, col3 = st.columns([2,1,2])
 
-    with col2:
-        away_team = st.selectbox("Deplasman Takım", 
-                               [t for t in data_manager.teams if t != home_team])
-        away_goals = st.number_input("Deplasman Gol", min_value=0, value=0)
+        with col1:
+            home_team = st.selectbox("Ev Sahibi Takım", data_manager.teams, key="home_team")
+            home_goals = st.number_input("Gol", min_value=0, value=0, key="home_goals")
 
-    if st.button("Sonucu Kaydet"):
-        if home_team != away_team:
-            data_manager.add_match_result(home_team, away_team, home_goals, away_goals)
-            st.success("Maç sonucu kaydedildi!")
+        with col2:
+            st.markdown("<h2 style='text-align: center; margin-top: 30px;'>VS</h2>", unsafe_allow_html=True)
+
+        with col3:
+            away_team = st.selectbox("Deplasman Takım", 
+                                   [t for t in data_manager.teams if t != home_team],
+                                   key="away_team")
+            away_goals = st.number_input("Gol", min_value=0, value=0, key="away_goals")
+
+    # Maç sonucu önizleme
+    if home_team and away_team:
+        st.markdown("### Maç Sonucu Önizleme")
+        col1, col2, col3 = st.columns([2,1,2])
+
+        with col1:
+            st.markdown(f"### {home_team}")
+            st.markdown(f"## {home_goals}")
+
+        with col2:
+            st.markdown("<h2 style='text-align: center;'>-</h2>", unsafe_allow_html=True)
+
+        with col3:
+            st.markdown(f"### {away_team}")
+            st.markdown(f"## {away_goals}")
+
+        # Sonuç açıklaması
+        if home_goals > away_goals:
+            winner = home_team
+            points = "3 puan kazandı!"
+        elif away_goals > home_goals:
+            winner = away_team
+            points = "3 puan kazandı!"
         else:
-            st.error("Aynı takımı iki kez seçemezsiniz!")
+            winner = "Beraberlik"
+            points = "Her iki takım 1'er puan kazandı!"
+
+        st.markdown(f"**Sonuç:** {winner} {points}")
+
+        if st.button("Sonucu Kaydet", type="primary"):
+            if home_team != away_team:
+                data_manager.add_match_result(home_team, away_team, home_goals, away_goals)
+                st.success(f"Maç sonucu kaydedildi! {home_team} {home_goals} - {away_goals} {away_team}")
+
+                # Güncel puan durumunu göster
+                st.markdown("### Güncel Puan Durumu")
+                new_standings = calculate_points(data_manager.matches, data_manager.teams)
+                df_new = pd.DataFrame.from_dict(new_standings, orient='index')
+                df_new = df_new.reset_index()
+                df_new.columns = ['Takım', 'Puan', 'Oynadığı', 'Galibiyet', 'Beraberlik',
+                              'Mağlubiyet', 'Attığı Gol', 'Yediği Gol', 'Averaj']
+                df_new = df_new.sort_values(by=['Puan', 'Averaj', 'Attığı Gol'], 
+                                          ascending=[False, False, False])
+                st.dataframe(df_new, use_container_width=True)
+            else:
+                st.error("Aynı takımı iki kez seçemezsiniz!")
 
 elif menu == "Fikstür":
     st.header("Fikstür")
