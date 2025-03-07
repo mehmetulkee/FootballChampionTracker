@@ -26,7 +26,7 @@ if 'is_admin' not in st.session_state:
 with st.sidebar:
     if not st.session_state.is_admin:
         admin_password = st.text_input("Admin Şifresi", type="password")
-        if admin_password == "admin123":  # Basit bir şifre kontrolü
+        if admin_password == "05365265029Me":  # Yeni şifre
             st.session_state.is_admin = True
             st.success("Admin girişi başarılı!")
     else:
