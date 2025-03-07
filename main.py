@@ -11,33 +11,6 @@ st.set_page_config(
     layout="wide"
 )
 
-# CSS stilleri
-st.markdown("""
-<style>
-    .main-header {
-        color: #1f77b4;
-        text-align: center;
-        padding: 1rem;
-        margin-bottom: 2rem;
-        background: linear-gradient(to right, #f0f2f6, #ffffff);
-        border-radius: 10px;
-    }
-    .stat-card {
-        background-color: #ffffff;
-        padding: 1rem;
-        border-radius: 10px;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        margin-bottom: 1rem;
-    }
-    .match-result {
-        background-color: #f8f9fa;
-        padding: 1rem;
-        border-radius: 5px;
-        margin: 0.5rem 0;
-    }
-</style>
-""", unsafe_allow_html=True)
-
 # Veri yöneticisi
 @st.cache_resource
 def get_data_manager():
@@ -62,7 +35,7 @@ with st.sidebar:
             st.rerun()
 
 # Ana başlık
-st.markdown("<h1 class='main-header'>⚽ Futbol Ligi Yönetim Sistemi</h1>", unsafe_allow_html=True)
+st.title("⚽ Futbol Ligi Yönetim Sistemi")
 
 # Sidebar menü
 menu_options = ["Puan Durumu", "Oynanan Maçlar", "Fikstür", "İstatistikler"]
@@ -100,83 +73,48 @@ elif menu == "Oynanan Maçlar":
 
     if data_manager.matches:
         for match in reversed(data_manager.matches):  # En son maçlar üstte
-            with st.container():
-                st.markdown(f"""
-                <div class='match-result'>
-                    <h3 style='text-align: center;'>
-                        {match['home_team']} {match['home_goals']} - {match['away_goals']} {match['away_team']}
-                    </h3>
-                    <p style='text-align: center;'>
-                        {match['home_goals'] > match['away_goals'] and '🏆 ' + match['home_team'] + ' kazandı!' or
-                         match['home_goals'] < match['away_goals'] and '🏆 ' + match['away_team'] + ' kazandı!' or
-                         '🤝 Berabere'}
-                    </p>
-                </div>
-                """, unsafe_allow_html=True)
+            st.write(f"{match['home_team']} {match['home_goals']} - {match['away_goals']} {match['away_team']}")
+            if match['home_goals'] > match['away_goals']:
+                st.write(f"🏆 {match['home_team']} kazandı!")
+            elif match['home_goals'] < match['away_goals']:
+                st.write(f"🏆 {match['away_team']} kazandı!")
+            else:
+                st.write("🤝 Berabere")
+            st.divider()
     else:
         st.info("Henüz oynanmış maç bulunmamaktadır.")
 
 elif menu == "Maç Sonucu Gir" and st.session_state.is_admin:
     st.header("Maç Sonucu Girişi")
 
-    # Maç seçimi için container
-    with st.container():
-        col1, col2, col3 = st.columns([2,1,2])
+    col1, col2, col3 = st.columns([2,1,2])
 
-        with col1:
-            home_team = st.selectbox("Ev Sahibi Takım", data_manager.teams, key="home_team")
-            home_goals = st.number_input("Gol", min_value=0, value=0, key="home_goals")
+    with col1:
+        home_team = st.selectbox("Ev Sahibi Takım", data_manager.teams, key="home_team")
+        home_goals = st.number_input("Gol", min_value=0, value=0, key="home_goals")
 
-        with col2:
-            st.markdown("<h2 style='text-align: center; margin-top: 30px;'>VS</h2>", unsafe_allow_html=True)
+    with col2:
+        st.write("##")
+        st.write("VS")
 
-        with col3:
-            away_team = st.selectbox("Deplasman Takım", 
-                                   [t for t in data_manager.teams if t != home_team],
-                                   key="away_team")
-            away_goals = st.number_input("Gol", min_value=0, value=0, key="away_goals")
+    with col3:
+        away_team = st.selectbox("Deplasman Takım", 
+                               [t for t in data_manager.teams if t != home_team],
+                               key="away_team")
+        away_goals = st.number_input("Gol", min_value=0, value=0, key="away_goals")
 
     # Maç sonucu önizleme
     if home_team and away_team:
-        st.markdown("### Maç Sonucu Önizleme")
-        col1, col2, col3 = st.columns([2,1,2])
-
-        with col1:
-            st.markdown(f"""
-            <div class='stat-card' style='text-align: center;'>
-                <h3>{home_team}</h3>
-                <h2 style='color: #1f77b4;'>{home_goals}</h2>
-            </div>
-            """, unsafe_allow_html=True)
-
-        with col2:
-            st.markdown("<h2 style='text-align: center;'>-</h2>", unsafe_allow_html=True)
-
-        with col3:
-            st.markdown(f"""
-            <div class='stat-card' style='text-align: center;'>
-                <h3>{away_team}</h3>
-                <h2 style='color: #1f77b4;'>{away_goals}</h2>
-            </div>
-            """, unsafe_allow_html=True)
+        st.write("### Maç Sonucu Önizleme")
+        st.write(f"{home_team} {home_goals} - {away_goals} {away_team}")
 
         # Sonuç açıklaması
         if home_goals > away_goals:
-            winner = home_team
-            points = "3 puan kazandı! 🏆"
+            st.write(f"🏆 {home_team} kazanacak ve 3 puan alacak!")
         elif away_goals > home_goals:
-            winner = away_team
-            points = "3 puan kazandı! 🏆"
+            st.write(f"🏆 {away_team} kazanacak ve 3 puan alacak!")
         else:
-            winner = "Beraberlik"
-            points = "Her iki takım 1'er puan kazandı! 🤝"
-
-        st.markdown(f"""
-        <div class='stat-card' style='text-align: center;'>
-            <h3>Sonuç</h3>
-            <p>{winner} {points}</p>
-        </div>
-        """, unsafe_allow_html=True)
+            st.write("🤝 Berabere kalacak ve her iki takım 1'er puan alacak!")
 
         if st.button("Sonucu Kaydet", type="primary"):
             if home_team != away_team:
@@ -184,7 +122,7 @@ elif menu == "Maç Sonucu Gir" and st.session_state.is_admin:
                 st.success(f"Maç sonucu kaydedildi! {home_team} {home_goals} - {away_goals} {away_team}")
 
                 # Güncel puan durumunu göster
-                st.markdown("### Güncel Puan Durumu")
+                st.write("### Güncel Puan Durumu")
                 new_standings = calculate_points(data_manager.matches, data_manager.teams)
                 df_new = pd.DataFrame.from_dict(new_standings, orient='index')
                 df_new = df_new.reset_index()
@@ -210,17 +148,9 @@ elif menu == "Fikstür":
         for i, match in enumerate(data_manager.fixture, 1):
             week = (i - 1) // 10 + 1  # Her haftada 10 maç
             if week != current_week:
-                st.markdown(f"""
-                <div class='stat-card'>
-                    <h3>{week}. Hafta</h3>
-                </div>
-                """, unsafe_allow_html=True)
+                st.write(f"\n### {week}. Hafta")
                 current_week = week
-            st.markdown(f"""
-            <div class='match-result'>
-                {match['home_team']} 🆚 {match['away_team']}
-            </div>
-            """, unsafe_allow_html=True)
+            st.write(f"{match['home_team']} 🆚 {match['away_team']}")
     else:
         st.info("Henüz fikstür oluşturulmamış.")
 
@@ -241,12 +171,14 @@ elif menu == "İstatistikler":
             df_stats.nlargest(5, 'Attığı Gol'),
             x='Takım',
             y='Attığı Gol',
-            title="En Çok Gol Atan Takımlar",
-            color='Takım',
-            color_discrete_sequence=px.colors.qualitative.Set3
+            title="En Çok Gol Atan Takımlar"
         )
-        fig_goals_for.update_layout(showlegend=False)
         st.plotly_chart(fig_goals_for, use_container_width=True)
+
+        # En çok galibiyet alanlar
+        st.write("### En Çok Galibiyet Alan Takımlar")
+        win_stats = df_stats[['Takım', 'Galibiyet']].nlargest(5, 'Galibiyet')
+        st.dataframe(win_stats, use_container_width=True)
 
     with col2:
         # En çok gol yiyenler grafiği
@@ -254,32 +186,11 @@ elif menu == "İstatistikler":
             df_stats.nlargest(5, 'Yediği Gol'),
             x='Takım',
             y='Yediği Gol',
-            title="En Çok Gol Yiyen Takımlar",
-            color='Takım',
-            color_discrete_sequence=px.colors.qualitative.Set3
+            title="En Çok Gol Yiyen Takımlar"
         )
-        fig_goals_against.update_layout(showlegend=False)
         st.plotly_chart(fig_goals_against, use_container_width=True)
 
-    # Genel istatistikler
-    col3, col4 = st.columns(2)
-
-    with col3:
-        # En çok galibiyet alanlar
-        st.markdown("""
-        <div class='stat-card'>
-            <h3>En Çok Galibiyet Alan Takımlar</h3>
-        </div>
-        """, unsafe_allow_html=True)
-        win_stats = df_stats[['Takım', 'Galibiyet']].nlargest(5, 'Galibiyet')
-        st.dataframe(win_stats, use_container_width=True)
-
-    with col4:
         # En çok beraberlik yapanlar
-        st.markdown("""
-        <div class='stat-card'>
-            <h3>En Çok Beraberlik Yapan Takımlar</h3>
-        </div>
-        """, unsafe_allow_html=True)
+        st.write("### En Çok Beraberlik Yapan Takımlar")
         draw_stats = df_stats[['Takım', 'Beraberlik']].nlargest(5, 'Beraberlik')
         st.dataframe(draw_stats, use_container_width=True)
