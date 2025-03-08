@@ -64,50 +64,61 @@ def create_round_robin_fixture(teams: List[str]) -> List[Dict[str, Any]]:
     Her takım her hafta sadece bir maç oynar ve 
     tüm takımlar birbiriyle eşleşir (N-1 hafta içinde).
     """
-    # Takım sayısının çift olduğunu kontrol et
-    original_teams = teams.copy()
+    # Takım sayısı tek ise, "Bay" takımı ekleyelim
     if len(teams) % 2 != 0:
-        # Takım sayısı tek ise, bir takım bay geçer
         teams = teams + ["Bay"]
     
     n = len(teams)
-    fixtures = []
+    matches = []
     
-    # Takımları sabit ve dönen olarak iki gruba ayır
-    # İlk yarı fikstür (n-1 hafta sürer)
-    teams_copy = teams.copy()
+    # Bu algoritma, her takımın her hafta yalnızca bir maç oynamasını sağlar
+    # İlk takım sabit kalır, diğerleri rotasyon yapar
+    team_rotation = teams.copy()
     
-    for week in range(1, n):
-        # Bu haftanın maçları
-        week_matches = []
+    for round_num in range(1, n):
+        # İlk eleman sabit kalır, diğerleri rotasyon yapar
+        fixed_team = team_rotation[0]
+        rotating_teams = team_rotation[1:]
         
-        # İlk takım sabit, diğerleri döner
+        # Bu haftaki eşleşmeleri oluştur
+        weekly_matches = []
         for i in range(n // 2):
-            home_team = teams_copy[i]
-            away_team = teams_copy[n - 1 - i]
+            home_team = rotating_teams[i]
+            away_team = rotating_teams[n - 2 - i]
             
-            # Eğer takımlardan biri "Bay" ise maçı ekleme
+            # İlk maçı sabit takımla yapar
+            if i == 0:
+                home_team = fixed_team
+            
+            # Bay geçen takım varsa, onu içeren maçları ekleme
             if home_team != "Bay" and away_team != "Bay":
                 match = {
                     "home_team": home_team,
                     "away_team": away_team,
                     "played": False,
-                    "week": week
+                    "week": round_num
                 }
-                week_matches.append(match)
+                weekly_matches.append(match)
         
-        # Takımları döndürme (ilk takım sabit kalır)
-        # Rotasyon: Sabit ilk takım kalır, son takım ikinci sıraya gelir,
-        # diğerleri bir yer ilerler
-        teams_copy = [teams_copy[0]] + [teams_copy[-1]] + teams_copy[1:-1]
+        # Rotasyon: Son eleman ikinci pozisyona gelir
+        team_rotation = [team_rotation[0]] + [team_rotation[-1]] + team_rotation[1:-1]
         
-        # Bu haftanın maçlarını ekle
-        fixtures.extend(week_matches)
+        matches.extend(weekly_matches)
+    
+    # Kalan haftalarda da (n'den 2n-1'e kadar) her takımın eşleşmesi için
+    # ilk yarının maçlarını ev/deplasman değiştirerek kopyala
+    for round_num in range(n, 2*n-1):
+        for i, match in enumerate(matches[:n//2]):
+            if round_num - n + 1 == i + 1:  # Bu haftaya ait maçları sadece ekle
+                new_match = {
+                    "home_team": match["away_team"],
+                    "away_team": match["home_team"],
+                    "played": False,
+                    "week": round_num
+                }
+                matches.append(new_match)
     
     # Maçları haftalara göre sırala
-    fixtures.sort(key=lambda x: x["week"])
+    matches.sort(key=lambda x: x["week"])
     
-    # Ev ve deplasman karışımı için ikinci yarı deplasman
-    # İkinci devreyi otomatik olarak oluşturmuyoruz, sadece tek devre
-    
-    return fixtures
+    return matches

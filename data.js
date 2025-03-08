@@ -117,30 +117,53 @@ function generateFixture() {
     const newFixture = [];
     
     // Her takımın her hafta bir maç oynadığı ve herkesin herkesle eşleştiği 
-    // Round Robin algoritması (N-1 hafta sürer)
-    let teamsSchedule = [...teamList];
+    // Round Robin algoritması - Berger tablosu
+    let teamRotation = [...teamList];
     
-    for (let week = 1; week <= n - 1; week++) {
-        // Bu haftanın maçları
+    for (let round = 1; round < n; round++) {
+        // İlk eleman sabit kalır, diğerleri rotasyon yapar
+        const fixedTeam = teamRotation[0];
+        const rotatingTeams = teamRotation.slice(1);
+        
+        // Bu haftaki eşleşmeleri oluştur
         for (let i = 0; i < n / 2; i++) {
-            const homeTeam = teamsSchedule[i];
-            const awayTeam = teamsSchedule[n - 1 - i];
+            let homeTeam = rotatingTeams[i];
+            let awayTeam = rotatingTeams[n - 2 - i];
             
-            // Eğer bay haftası değilse maçı ekle
+            // İlk maçı sabit takımla yapar
+            if (i === 0) {
+                homeTeam = fixedTeam;
+            }
+            
+            // Bay geçen takım varsa, onu içeren maçları ekleme
             if (homeTeam !== "Bay" && awayTeam !== "Bay") {
                 newFixture.push({
                     home_team: homeTeam,
                     away_team: awayTeam,
                     played: false,
-                    week: week
+                    week: round
                 });
             }
         }
         
-        // Takımları rotasyon algoritması ile döndür
-        // İlk takım sabit kalır, son takım ikinci pozisyona gelir, 
-        // diğerleri bir yer ilerler
-        teamsSchedule = [teamsSchedule[0], teamsSchedule[n-1], ...teamsSchedule.slice(1, n-1)];
+        // Rotasyon: Son eleman ikinci pozisyona gelir
+        teamRotation = [teamRotation[0], teamRotation[teamRotation.length-1], ...teamRotation.slice(1, teamRotation.length-1)];
+    }
+    
+    // Kalan haftalarda da her takımın eşleşmesi için (rövanş maçları)
+    // ilk yarının maçlarını ev/deplasman değiştirerek kopyala
+    const firstHalfFixture = [...newFixture];
+    for (let round = n; round < 2*n-1; round++) {
+        const weekMatches = firstHalfFixture.filter(match => match.week === round - n + 1);
+        
+        weekMatches.forEach(match => {
+            newFixture.push({
+                home_team: match.away_team,
+                away_team: match.home_team,
+                played: false,
+                week: round
+            });
+        });
     }
     
     // Fikstürü haftalara göre sırala

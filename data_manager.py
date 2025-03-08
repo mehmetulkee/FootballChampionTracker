@@ -58,7 +58,7 @@ class DataManager:
         """Yeni fikstür oluşturur - her takım her hafta bir maç oynar"""
         # Mevcut maçları temizle
         self.matches = []
-        # Yeni fikstür oluştur
+        # Yeni fikstür oluştur - tüm takımlar birbiriyle eşleşecek şekilde
         self.fixture = create_round_robin_fixture(self.teams)
         # Fikstür verilerini kaydet
         self.save_data()
