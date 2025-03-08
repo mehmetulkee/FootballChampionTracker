@@ -9,7 +9,7 @@ class DataManager:
             "Manchester United", "Newcastle United", "Juventus", "Manchester City", 
             "Bayern Munih", "Milan", "Atalanta", "Arsenal", "Ajax", "İnter", 
             "Roma", "PSG", "Dortmund", "Psv", "Napoli", "Feyenoord", "Liverpool", 
-            "Santos", "Leverkusen", "Real Madrid"
+            "Konyaspor", "Leverkusen", "Real Madrid"
         ]
         self.matches = []
         self.fixture = []

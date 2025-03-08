@@ -13,7 +13,7 @@
   },
   {
     "home_team": "Juventus",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 1
   },
@@ -102,7 +102,7 @@
     "week": 2
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "Manchester City",
     "played": false,
     "week": 2
@@ -139,7 +139,7 @@
   },
   {
     "home_team": "Bayern Munih",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 3
   },
@@ -216,7 +216,7 @@
     "week": 4
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "Milan",
     "played": false,
     "week": 4
@@ -265,7 +265,7 @@
   },
   {
     "home_team": "Atalanta",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 5
   },
@@ -330,7 +330,7 @@
     "week": 6
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "Arsenal",
     "played": false,
     "week": 6
@@ -391,7 +391,7 @@
   },
   {
     "home_team": "Ajax",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 7
   },
@@ -444,7 +444,7 @@
     "week": 8
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "İnter",
     "played": false,
     "week": 8
@@ -517,7 +517,7 @@
   },
   {
     "home_team": "Real Madrid",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 9
   },
@@ -558,7 +558,7 @@
     "week": 10
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "PSG",
     "played": false,
     "week": 10
@@ -643,7 +643,7 @@
   },
   {
     "home_team": "Dortmund",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 11
   },
@@ -672,7 +672,7 @@
     "week": 12
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "Psv",
     "played": false,
     "week": 12
@@ -769,7 +769,7 @@
   },
   {
     "home_team": "Napoli",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 13
   },
@@ -786,7 +786,7 @@
     "week": 14
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "Feyenoord",
     "played": false,
     "week": 14
@@ -895,13 +895,13 @@
   },
   {
     "home_team": "Liverpool",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 15
   },
   {
     "home_team": "Roma",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 16
   },
@@ -997,7 +997,7 @@
   },
   {
     "home_team": "Napoli",
-    "away_team": "Juventus",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 17
   },
@@ -1014,7 +1014,7 @@
     "week": 17
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "Leverkusen",
     "played": false,
     "week": 17
@@ -1027,7 +1027,7 @@
   },
   {
     "home_team": "Manchester United",
-    "away_team": "Santos",
+    "away_team": "Konyaspor",
     "played": false,
     "week": 18
   },
@@ -1128,7 +1128,7 @@
     "week": 19
   },
   {
-    "home_team": "Santos",
+    "home_team": "Konyaspor",
     "away_team": "Newcastle United",
     "played": false,
     "week": 19
