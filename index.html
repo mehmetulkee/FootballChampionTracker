@@ -1,0 +1,142 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futbol Ligi Yönetim Sistemi</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <div class="sidebar">
+        <h3>Menü</h3>
+        <ul class="menu">
+            <li><a href="#puan-durumu" class="active">Puan Durumu</a></li>
+            <li><a href="#oynanan-maclar">Oynanan Maçlar</a></li>
+            <li><a href="#fikstur">Fikstür</a></li>
+            <li><a href="#istatistikler">İstatistikler</a></li>
+        </ul>
+        
+        <div class="admin-panel">
+            <h3>Admin Girişi</h3>
+            <input type="password" id="admin-password" placeholder="Admin Şifresi">
+            <button id="admin-login">Giriş Yap</button>
+            <button id="admin-logout" style="display: none;">Çıkış Yap</button>
+        </div>
+    </div>
+    
+    <div class="main-content">
+        <h1>⚽ Futbol Ligi Yönetim Sistemi</h1>
+        
+        <div id="puan-durumu" class="section active">
+            <h2>Puan Durumu</h2>
+            <table id="standings-table">
+                <thead>
+                    <tr>
+                        <th>Sıra</th>
+                        <th>Takım</th>
+                        <th>P</th>
+                        <th>O</th>
+                        <th>G</th>
+                        <th>B</th>
+                        <th>M</th>
+                        <th>AG</th>
+                        <th>YG</th>
+                        <th>A</th>
+                    </tr>
+                </thead>
+                <tbody id="standings-body">
+                    <!-- JavaScript ile doldurulacak -->
+                </tbody>
+            </table>
+        </div>
+        
+        <div id="oynanan-maclar" class="section">
+            <h2>Oynanan Maçlar</h2>
+            <div id="matches-container">
+                <!-- JavaScript ile doldurulacak -->
+            </div>
+        </div>
+        
+        <div id="mac-girisi" class="section">
+            <h2>Maç Sonucu Girişi</h2>
+            <div class="match-form">
+                <div class="team-selection">
+                    <div class="home-team">
+                        <label>Ev Sahibi Takım</label>
+                        <select id="home-team"></select>
+                        <label>Gol</label>
+                        <input type="number" id="home-goals" min="0" value="0">
+                    </div>
+                    
+                    <div class="vs">VS</div>
+                    
+                    <div class="away-team">
+                        <label>Deplasman Takım</label>
+                        <select id="away-team"></select>
+                        <label>Gol</label>
+                        <input type="number" id="away-goals" min="0" value="0">
+                    </div>
+                </div>
+                
+                <div id="match-preview">
+                    <h3>Maç Sonucu Önizleme</h3>
+                    <p id="match-result-preview"></p>
+                    <p id="match-outcome-preview"></p>
+                </div>
+                
+                <button id="save-result" class="primary-button">Sonucu Kaydet</button>
+            </div>
+        </div>
+        
+        <div id="fikstur" class="section">
+            <h2>Fikstür</h2>
+            <button id="generate-fixture" class="admin-only">Yeni Fikstür Oluştur</button>
+            <div id="fixture-container">
+                <!-- JavaScript ile doldurulacak -->
+            </div>
+        </div>
+        
+        <div id="istatistikler" class="section">
+            <h2>Detaylı İstatistikler</h2>
+            <div class="stats-container">
+                <div class="stats-column">
+                    <div id="goals-for-chart"></div>
+                    <h3>En Çok Galibiyet Alan Takımlar</h3>
+                    <table id="win-stats" class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Takım</th>
+                                <th>Galibiyet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JavaScript ile doldurulacak -->
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="stats-column">
+                    <div id="goals-against-chart"></div>
+                    <h3>En Çok Beraberlik Yapan Takımlar</h3>
+                    <table id="draw-stats" class="stats-table">
+                        <thead>
+                            <tr>
+                                <th>Takım</th>
+                                <th>Beraberlik</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- JavaScript ile doldurulacak -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
