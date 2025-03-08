@@ -11,3 +11,5 @@ services:
       - key: PYTHON_VERSION
         value: 3.11.0
     plan: free
+    # Setting the publicDir and staticPublishPath to null to indicate this is not a static site
+    staticPublishPath: ""
