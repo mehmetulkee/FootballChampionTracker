@@ -7,9 +7,7 @@ services:
     startCommand: python -m streamlit run main.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true --server.enableCORS=false
     envVars:
       - key: PORT
-        value: 8080
+        value: 8501
       - key: PYTHON_VERSION
         value: 3.11.0
     plan: free
-    # Setting the publicDir and staticPublishPath to null to indicate this is not a static site
-    staticPublishPath: ""
