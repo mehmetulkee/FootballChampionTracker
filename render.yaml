@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: futbol-ligi
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: streamlit run main.py
+    envVars:
+      - key: PORT
+        value: 5000
