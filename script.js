@@ -289,29 +289,168 @@ function renderFixture() {
     });
     
     // Haftaları sırayla göster
-    const weeks = Object.keys(fixtureByWeek).sort((a, b) => a - b);
+    const weeks = Object.keys(fixtureByWeek).sort((a, b) => parseInt(a) - parseInt(b));
     
-    weeks.forEach(week => {
+    // Haftalar için sekme konteynerı oluştur
+    const tabsContainer = document.createElement('div');
+    tabsContainer.className = 'tabs-container';
+    
+    // Sekme başlıkları
+    const tabsHeader = document.createElement('div');
+    tabsHeader.className = 'tabs-header';
+    
+    // Sekme içerikleri
+    const tabsContent = document.createElement('div');
+    tabsContent.className = 'tabs-content';
+    
+    // Her hafta için sekme oluştur
+    weeks.forEach((week, index) => {
+        // Sekme başlığı
+        const tabButton = document.createElement('button');
+        tabButton.className = 'tab-button';
+        tabButton.textContent = `${week}. Hafta`;
+        
+        if (index === 0) {
+            tabButton.classList.add('active');
+        }
+        
+        tabButton.onclick = function() {
+            // Bütün sekmeleri pasif yap
+            document.querySelectorAll('.tab-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelectorAll('.tab-content').forEach(content => {
+                content.classList.remove('active');
+            });
+            
+            // Bu sekmeyi aktif yap
+            this.classList.add('active');
+            document.getElementById(`week-${week}`).classList.add('active');
+        };
+        
+        tabsHeader.appendChild(tabButton);
+        
+        // Sekme içeriği
+        const tabContent = document.createElement('div');
+        tabContent.className = 'tab-content';
+        tabContent.id = `week-${week}`;
+        
+        if (index === 0) {
+            tabContent.classList.add('active');
+        }
+        
         const weekFixtureDiv = document.createElement('div');
         weekFixtureDiv.className = 'fixture-week';
-        weekFixtureDiv.innerHTML = `<h3>${week}. Hafta</h3>`;
+        weekFixtureDiv.innerHTML = `<h3>${week}. Hafta Maçları</h3>`;
         
+        // Bu haftanın maçlarını ekle
         fixtureByWeek[week].forEach(match => {
+            const matchContainer = document.createElement('div');
+            matchContainer.className = 'match-container';
+            
             const matchDiv = document.createElement('div');
             matchDiv.className = 'fixture-match';
             
+            // Ev sahibi takım
+            const homeTeam = document.createElement('span');
+            homeTeam.className = 'team home-team';
+            homeTeam.textContent = match.home_team;
+            
+            // VS işareti
+            const vs = document.createElement('span');
+            vs.className = 'vs';
+            
             if (match.played) {
-                matchDiv.innerHTML = `✅ ${match.home_team} 🆚 ${match.away_team}`;
+                vs.innerHTML = '✅ 🆚';
                 matchDiv.style.color = '#888';
             } else {
-                matchDiv.innerHTML = `⏳ ${match.home_team} 🆚 ${match.away_team}`;
+                vs.innerHTML = '⏳ 🆚';
             }
             
-            weekFixtureDiv.appendChild(matchDiv);
+            // Deplasman takımı
+            const awayTeam = document.createElement('span');
+            awayTeam.className = 'team away-team';
+            awayTeam.textContent = match.away_team;
+            
+            // Elemanları bir araya getir
+            matchDiv.appendChild(homeTeam);
+            matchDiv.appendChild(vs);
+            matchDiv.appendChild(awayTeam);
+            
+            matchContainer.appendChild(matchDiv);
+            weekFixtureDiv.appendChild(matchContainer);
         });
         
-        fixtureContainer.appendChild(weekFixtureDiv);
+        tabContent.appendChild(weekFixtureDiv);
+        tabsContent.appendChild(tabContent);
     });
+    
+    tabsContainer.appendChild(tabsHeader);
+    tabsContainer.appendChild(tabsContent);
+    fixtureContainer.appendChild(tabsContainer);
+    
+    // Sekme stili
+    const style = document.createElement('style');
+    style.textContent = `
+        .tabs-container {
+            width: 100%;
+        }
+        .tabs-header {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+        .tab-button {
+            padding: 8px 15px;
+            border: none;
+            background: #f0f0f0;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+        }
+        .tab-button.active {
+            background: #4a69bd;
+            color: white;
+        }
+        .tab-content {
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+        }
+        .fixture-match {
+            padding: 10px;
+            margin: 5px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .vs {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .team {
+            font-weight: bold;
+        }
+        .home-team {
+            text-align: right;
+            flex: 2;
+        }
+        .away-team {
+            text-align: left;
+            flex: 2;
+        }
+        .match-container {
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+        }
+        .match-container:last-child {
+            border-bottom: none;
+        }
+    `;
+    document.head.appendChild(style);
 }
 
 // İstatistikleri render et

@@ -137,14 +137,19 @@ elif menu == "Maç Sonucu Gir" and st.session_state.is_admin:
 elif menu == "Fikstür":
     st.header("Fikstür")
 
-    if st.session_state.is_admin and st.button("Yeni Fikstür Oluştur"):
-        data_manager.generate_new_fixture()
-        st.success("Yeni fikstür oluşturuldu!")
+    with st.container():
+        c1, c2 = st.columns([3, 1])
+        with c1:
+            st.write("### Maç Programı")
+        with c2:
+            if st.session_state.is_admin:
+                if st.button("Yeni Fikstür Oluştur"):
+                    data_manager.generate_new_fixture()
+                    st.success("Yeni fikstür oluşturuldu!")
+                    st.rerun()
 
     # Fikstür gösterimi
     if data_manager.fixture:
-        st.write("### Maç Programı")
-        
         # Haftalara göre gruplandır
         fixture_by_week = {}
         for match in data_manager.fixture:
@@ -153,12 +158,35 @@ elif menu == "Fikstür":
                 fixture_by_week[week] = []
             fixture_by_week[week].append(match)
         
-        # Haftaları sırayla göster
-        for week in sorted(fixture_by_week.keys()):
-            with st.expander(f"{week}. Hafta", expanded=(week == 1)):
-                for match in fixture_by_week[week]:
-                    status = "✅" if match.get("played", False) else "⏳"
-                    st.write(f"{status} {match['home_team']} 🆚 {match['away_team']}")
+        # Haftaları sırayla göster, 3 küçük sütun olarak
+        total_weeks = len(fixture_by_week.keys())
+        
+        # En çok maç sayısını bulalım (her takımın başka bir takımla eşleşmesi için)
+        matches_per_week = len(data_manager.teams) // 2
+        
+        tabs = st.tabs([f"{week}. Hafta" for week in range(1, total_weeks + 1)])
+        
+        for week_idx, week in enumerate(range(1, total_weeks + 1)):
+            if week in fixture_by_week:
+                with tabs[week_idx]:
+                    st.write(f"### {week}. Hafta Maçları")
+                    
+                    # Bu haftanın maçlarını göster
+                    for i, match in enumerate(fixture_by_week[week]):
+                        col1, col2, col3 = st.columns([2, 1, 2])
+                        
+                        with col1:
+                            st.write(f"**{match['home_team']}**")
+                        
+                        with col2:
+                            status = "✅" if match.get("played", False) else "⏳"
+                            st.write(f"{status} 🆚")
+                        
+                        with col3:
+                            st.write(f"**{match['away_team']}**")
+                        
+                        if i < len(fixture_by_week[week]) - 1:
+                            st.divider()
     else:
         st.info("Henüz fikstür oluşturulmamış.")
 

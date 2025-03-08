@@ -55,6 +55,11 @@ class DataManager:
         self.save_data()
     
     def generate_new_fixture(self):
-        """Yeni fikstür oluşturur"""
+        """Yeni fikstür oluşturur - her takım her hafta bir maç oynar"""
+        # Mevcut maçları temizle
+        self.matches = []
+        # Yeni fikstür oluştur
         self.fixture = create_round_robin_fixture(self.teams)
+        # Fikstür verilerini kaydet
         self.save_data()
+        return len(self.fixture)

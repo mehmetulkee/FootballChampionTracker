@@ -61,34 +61,53 @@ def calculate_points(matches, teams):
 def create_round_robin_fixture(teams: List[str]) -> List[Dict[str, Any]]:
     """
     Round Robin algoritması ile fikstür oluşturur.
-    Her takım her hafta sadece bir maç oynar.
+    Her takım her hafta sadece bir maç oynar ve 
+    tüm takımlar birbiriyle eşleşir (N-1 hafta içinde).
     """
+    # Takım sayısının çift olduğunu kontrol et
+    original_teams = teams.copy()
     if len(teams) % 2 != 0:
         # Takım sayısı tek ise, bir takım bay geçer
         teams = teams + ["Bay"]
     
     n = len(teams)
-    matches = []
     fixtures = []
     
-    # İlk yarı fikstür (1-19 hafta)
-    for week in range(n - 1):
-        week_matches = []
-        for i in range(n // 2):
-            match = {
-                "home_team": teams[i],
-                "away_team": teams[n - 1 - i],
-                "played": False,
-                "week": week + 1
-            }
-            week_matches.append(match)
-        
-        fixtures.extend(week_matches)
-        
-        # Takımları döndür (ilk takım sabit kalır)
-        teams = [teams[0]] + [teams[-1]] + teams[1:-1]
+    # Takımları sabit ve dönen olarak iki gruba ayır
+    # İlk yarı fikstür (n-1 hafta sürer)
+    teams_copy = teams.copy()
     
-    # Fikstürü haftalara göre sırala
+    for week in range(1, n):
+        # Bu haftanın maçları
+        week_matches = []
+        
+        # İlk takım sabit, diğerleri döner
+        for i in range(n // 2):
+            home_team = teams_copy[i]
+            away_team = teams_copy[n - 1 - i]
+            
+            # Eğer takımlardan biri "Bay" ise maçı ekleme
+            if home_team != "Bay" and away_team != "Bay":
+                match = {
+                    "home_team": home_team,
+                    "away_team": away_team,
+                    "played": False,
+                    "week": week
+                }
+                week_matches.append(match)
+        
+        # Takımları döndürme (ilk takım sabit kalır)
+        # Rotasyon: Sabit ilk takım kalır, son takım ikinci sıraya gelir,
+        # diğerleri bir yer ilerler
+        teams_copy = [teams_copy[0]] + [teams_copy[-1]] + teams_copy[1:-1]
+        
+        # Bu haftanın maçlarını ekle
+        fixtures.extend(week_matches)
+    
+    # Maçları haftalara göre sırala
     fixtures.sort(key=lambda x: x["week"])
+    
+    # Ev ve deplasman karışımı için ikinci yarı deplasman
+    # İkinci devreyi otomatik olarak oluşturmuyoruz, sadece tek devre
     
     return fixtures

@@ -116,26 +116,46 @@ function generateFixture() {
     const n = teamList.length;
     const newFixture = [];
     
-    // İlk yarı fikstür (1-19 hafta)
-    for (let round = 0; round < n - 1; round++) {
+    // Her takımın her hafta bir maç oynadığı ve herkesin herkesle eşleştiği 
+    // Round Robin algoritması (N-1 hafta sürer)
+    let teamsSchedule = [...teamList];
+    
+    for (let week = 1; week <= n - 1; week++) {
+        // Bu haftanın maçları
         for (let i = 0; i < n / 2; i++) {
-            // Her takım her hafta sadece bir maç oynar
-            newFixture.push({
-                home_team: teamList[i],
-                away_team: teamList[n - 1 - i],
-                played: false,
-                week: round + 1
-            });
+            const homeTeam = teamsSchedule[i];
+            const awayTeam = teamsSchedule[n - 1 - i];
+            
+            // Eğer bay haftası değilse maçı ekle
+            if (homeTeam !== "Bay" && awayTeam !== "Bay") {
+                newFixture.push({
+                    home_team: homeTeam,
+                    away_team: awayTeam,
+                    played: false,
+                    week: week
+                });
+            }
         }
         
-        // Takımları döndür (ilk takım sabit kalır)
-        teamList = [teamList[0], ...teamList.slice(n - 1), ...teamList.slice(1, n - 1)];
+        // Takımları rotasyon algoritması ile döndür
+        // İlk takım sabit kalır, son takım ikinci pozisyona gelir, 
+        // diğerleri bir yer ilerler
+        teamsSchedule = [teamsSchedule[0], teamsSchedule[n-1], ...teamsSchedule.slice(1, n-1)];
     }
     
     // Fikstürü haftalara göre sırala
     fixture = newFixture.sort((a, b) => a.week - b.week);
+    
+    // Maçları temizle
+    matches = [];
+    
     saveData();
     renderFixture();
+    
+    // Ayrıca puan durumunu da sıfırla ve yeniden göster
+    renderStandings();
+    renderMatches();
+    renderStatistics();
 }
 
 // Maç sonucunu ekle
