@@ -56,8 +56,7 @@ if menu == "Puan Durumu":
     ]
 
     # Sıralama işlemi
-    df_standings = df_standings.sort_values(
-        by=['Puan', 'Averaj', 'Attığı Gol'], ascending=[False, False, False])
+    df_standings = df_standings.sort_values(by=['Puan', 'Averaj', 'Attığı Gol'], ascending=[False, False, False])
 
     # Sıra numarası ekleme
     df_standings.insert(0, 'Sıra', range(1, len(df_standings) + 1))
@@ -69,9 +68,7 @@ elif menu == "Oynanan Maçlar":
 
     if data_manager.matches:
         for match in reversed(data_manager.matches):  # En son maçlar üstte
-            st.write(
-                f"{match['home_team']} {match['home_goals']} - {match['away_goals']} {match['away_team']}"
-            )
+            st.write(f"{match['home_team']} {match['home_goals']} - {match['away_goals']} {match['away_team']}")
             if match['home_goals'] > match['away_goals']:
                 st.write(f"🏆 {match['home_team']} kazandı!")
             elif match['home_goals'] < match['away_goals']:
@@ -88,27 +85,16 @@ elif menu == "Maç Sonucu Gir" and st.session_state.is_admin:
     col1, col2, col3 = st.columns([2, 1, 2])
 
     with col1:
-        home_team = st.selectbox("Ev Sahibi Takım",
-                                 data_manager.teams,
-                                 key="home_team")
-        home_goals = st.number_input("Gol",
-                                     min_value=0,
-                                     value=0,
-                                     key="home_goals")
+        home_team = st.selectbox("Ev Sahibi Takım", data_manager.teams, key="home_team")
+        home_goals = st.number_input("Gol", min_value=0, value=0, key="home_goals")
 
     with col2:
         st.write("##")
         st.write("VS")
 
     with col3:
-        away_team = st.selectbox(
-            "Deplasman Takım",
-            [t for t in data_manager.teams if t != home_team],
-            key="away_team")
-        away_goals = st.number_input("Gol",
-                                     min_value=0,
-                                     value=0,
-                                     key="away_goals")
+        away_team = st.selectbox("Deplasman Takım", [t for t in data_manager.teams if t != home_team], key="away_team")
+        away_goals = st.number_input("Gol", min_value=0, value=0, key="away_goals")
 
     # Maç sonucu önizleme
     if home_team and away_team:
@@ -126,9 +112,7 @@ elif menu == "Maç Sonucu Gir" and st.session_state.is_admin:
         if st.button("Sonucu Kaydet", type="primary"):
             if home_team != away_team:
                 data_manager.add_match_result(home_team, away_team, home_goals, away_goals)
-                st.success(
-                    f"Maç sonucu kaydedildi! {home_team} {home_goals} - {away_goals} {away_team}"
-                )
+                st.success(f"Maç sonucu kaydedildi! {home_team} {home_goals} - {away_goals} {away_team}")
 
                 # Güncel puan durumunu göster
                 st.write("### Güncel Puan Durumu")
@@ -138,9 +122,7 @@ elif menu == "Maç Sonucu Gir" and st.session_state.is_admin:
                     'Takım', 'Puan', 'Oynadığı', 'Galibiyet', 'Beraberlik',
                     'Mağlubiyet', 'Attığı Gol', 'Yediği Gol', 'Averaj'
                 ]
-                df_new = df_new.sort_values(
-                    by=['Puan', 'Averaj', 'Attığı Gol'],
-                    ascending=[False, False, False])
+                df_new = df_new.sort_values(by=['Puan', 'Averaj', 'Attığı Gol'], ascending=[False, False, False])
                 st.dataframe(df_new, use_container_width=True)
             else:
                 st.error("Aynı takımı iki kez seçemezsiniz!")
@@ -216,9 +198,10 @@ elif menu == "İstatistikler":
     col1, col2, col3, col4 = st.columns(4)
 
     with col1:
-        st.metric("En Çok Gol Atan Takım",
-                  str(df_stats.iloc[0]['Takım']) if not df_stats.empty else "-",
-                  int(df_stats.iloc[0]['Attığı Gol']) if not df_stats.empty else 0)
+        st.metric(
+            "En Çok Gol Atan Takım",
+            str(df_stats.iloc[0]['Takım']) if not df_stats.empty else "-",
+            int(df_stats.iloc[0]['Attığı Gol']) if not df_stats.empty else 0)
 
     with col2:
         top_defense = df_stats.sort_values(by='Yediği Gol', ascending=True)
@@ -236,8 +219,9 @@ elif menu == "İstatistikler":
 
     with col4:
         top_draw = df_stats.sort_values(by='Beraberlik', ascending=False)
-        st.metric("En Çok Beraberlik Yapan",
-                  str(top_draw.iloc[0]['Takım']) if not top_draw.empty else "-",
-                  int(top_draw.iloc[0]['Beraberlik']) if not top_draw.empty else 0)
+        st.metric(
+            "En Çok Beraberlik Yapan",
+            str(top_draw.iloc[0]['Takım']) if not top_draw.empty else "-",
+            int(top_draw.iloc[0]['Beraberlik']) if not top_draw.empty else 0)
 
     st.divider()
