@@ -1,1 +1,1143 @@
-[{"home_team": "Ajax", "away_team": "Roma", "played": false, "week": 1}, {"home_team": "Barcelona", "away_team": "Real Madrid", "played": false, "week": 1}, {"home_team": "Benfica", "away_team": "Porto", "played": false, "week": 1}, {"home_team": "Beşiktaş", "away_team": "Napoli", "played": false, "week": 1}, {"home_team": "Chelsea", "away_team": "Milan", "played": false, "week": 1}, {"home_team": "Fenerbahçe", "away_team": "Manchester United", "played": false, "week": 1}, {"home_team": "Galatasaray", "away_team": "Manchester City", "played": false, "week": 1}, {"home_team": "İnter", "away_team": "Liverpool", "played": false, "week": 1}, {"home_team": "Juventus", "away_team": "Juventus", "played": false, "week": 1}, {"home_team": "Arsenal", "away_team": "Roma", "played": false, "week": 2}, {"home_team": "Atalanta", "away_team": "Real Madrid", "played": false, "week": 2}, {"home_team": "Ajax", "away_team": "Porto", "played": false, "week": 2}, {"home_team": "Barcelona", "away_team": "Napoli", "played": false, "week": 2}, {"home_team": "Benfica", "away_team": "Milan", "played": false, "week": 2}, {"home_team": "Beşiktaş", "away_team": "Manchester United", "played": false, "week": 2}, {"home_team": "Chelsea", "away_team": "Manchester City", "played": false, "week": 2}, {"home_team": "Fenerbahçe", "away_team": "Liverpool", "played": false, "week": 2}, {"home_team": "Galatasaray", "away_team": "Juventus", "played": false, "week": 2}, {"home_team": "İnter", "away_team": "İnter", "played": false, "week": 2}, {"home_team": "Arsenal", "away_team": "Real Madrid", "played": false, "week": 3}, {"home_team": "Atalanta", "away_team": "Napoli", "played": false, "week": 3}, {"home_team": "Ajax", "away_team": "Milan", "played": false, "week": 3}, {"home_team": "Barcelona", "away_team": "Manchester United", "played": false, "week": 3}, {"home_team": "Benfica", "away_team": "Manchester City", "played": false, "week": 3}, {"home_team": "Beşiktaş", "away_team": "Liverpool", "played": false, "week": 3}, {"home_team": "Chelsea", "away_team": "Juventus", "played": false, "week": 3}, {"home_team": "Fenerbahçe", "away_team": "İnter", "played": false, "week": 3}, {"home_team": "Galatasaray", "away_team": "Galatasaray", "played": false, "week": 3}, {"home_team": "Arsenal", "away_team": "Porto", "played": false, "week": 4}, {"home_team": "Roma", "away_team": "Napoli", "played": false, "week": 4}, {"home_team": "Atalanta", "away_team": "Manchester United", "played": false, "week": 4}, {"home_team": "Ajax", "away_team": "Manchester City", "played": false, "week": 4}, {"home_team": "Barcelona", "away_team": "Liverpool", "played": false, "week": 4}, {"home_team": "Benfica", "away_team": "Juventus", "played": false, "week": 4}, {"home_team": "Beşiktaş", "away_team": "İnter", "played": false, "week": 4}, {"home_team": "Chelsea", "away_team": "Galatasaray", "played": false, "week": 4}, {"home_team": "Fenerbahçe", "away_team": "Fenerbahçe", "played": false, "week": 4}, {"home_team": "Arsenal", "away_team": "Napoli", "played": false, "week": 5}, {"home_team": "Real Madrid", "away_team": "Milan", "played": false, "week": 5}, {"home_team": "Roma", "away_team": "Manchester United", "played": false, "week": 5}, {"home_team": "Atalanta", "away_team": "Liverpool", "played": false, "week": 5}, {"home_team": "Ajax", "away_team": "Juventus", "played": false, "week": 5}, {"home_team": "Barcelona", "away_team": "İnter", "played": false, "week": 5}, {"home_team": "Benfica", "away_team": "Galatasaray", "played": false, "week": 5}, {"home_team": "Beşiktaş", "away_team": "Fenerbahçe", "played": false, "week": 5}, {"home_team": "Chelsea", "away_team": "Chelsea", "played": false, "week": 5}, {"home_team": "Arsenal", "away_team": "Milan", "played": false, "week": 6}, {"home_team": "Porto", "away_team": "Manchester United", "played": false, "week": 6}, {"home_team": "Real Madrid", "away_team": "Manchester City", "played": false, "week": 6}, {"home_team": "Roma", "away_team": "Liverpool", "played": false, "week": 6}, {"home_team": "Atalanta", "away_team": "İnter", "played": false, "week": 6}, {"home_team": "Ajax", "away_team": "Galatasaray", "played": false, "week": 6}, {"home_team": "Barcelona", "away_team": "Fenerbahçe", "played": false, "week": 6}, {"home_team": "Benfica", "away_team": "Chelsea", "played": false, "week": 6}, {"home_team": "Beşiktaş", "away_team": "Beşiktaş", "played": false, "week": 6}, {"home_team": "Arsenal", "away_team": "Manchester United", "played": false, "week": 7}, {"home_team": "Napoli", "away_team": "Manchester City", "played": false, "week": 7}, {"home_team": "Porto", "away_team": "Liverpool", "played": false, "week": 7}, {"home_team": "Real Madrid", "away_team": "Juventus", "played": false, "week": 7}, {"home_team": "Roma", "away_team": "İnter", "played": false, "week": 7}, {"home_team": "Atalanta", "away_team": "Fenerbahçe", "played": false, "week": 7}, {"home_team": "Ajax", "away_team": "Chelsea", "played": false, "week": 7}, {"home_team": "Barcelona", "away_team": "Beşiktaş", "played": false, "week": 7}, {"home_team": "Benfica", "away_team": "Benfica", "played": false, "week": 7}, {"home_team": "Arsenal", "away_team": "Manchester City", "played": false, "week": 8}, {"home_team": "Milan", "away_team": "Liverpool", "played": false, "week": 8}, {"home_team": "Napoli", "away_team": "Juventus", "played": false, "week": 8}, {"home_team": "Porto", "away_team": "İnter", "played": false, "week": 8}, {"home_team": "Real Madrid", "away_team": "Galatasaray", "played": false, "week": 8}, {"home_team": "Roma", "away_team": "Fenerbahçe", "played": false, "week": 8}, {"home_team": "Atalanta", "away_team": "Beşiktaş", "played": false, "week": 8}, {"home_team": "Ajax", "away_team": "Benfica", "played": false, "week": 8}, {"home_team": "Barcelona", "away_team": "Barcelona", "played": false, "week": 8}, {"home_team": "Arsenal", "away_team": "Liverpool", "played": false, "week": 9}, {"home_team": "Manchester United", "away_team": "Juventus", "played": false, "week": 9}, {"home_team": "Milan", "away_team": "İnter", "played": false, "week": 9}, {"home_team": "Napoli", "away_team": "Galatasaray", "played": false, "week": 9}, {"home_team": "Porto", "away_team": "Fenerbahçe", "played": false, "week": 9}, {"home_team": "Real Madrid", "away_team": "Chelsea", "played": false, "week": 9}, {"home_team": "Roma", "away_team": "Beşiktaş", "played": false, "week": 9}, {"home_team": "Atalanta", "away_team": "Barcelona", "played": false, "week": 9}, {"home_team": "Ajax", "away_team": "Ajax", "played": false, "week": 9}, {"home_team": "Arsenal", "away_team": "Juventus", "played": false, "week": 10}, {"home_team": "Manchester City", "away_team": "İnter", "played": false, "week": 10}, {"home_team": "Manchester United", "away_team": "Galatasaray", "played": false, "week": 10}, {"home_team": "Milan", "away_team": "Fenerbahçe", "played": false, "week": 10}, {"home_team": "Napoli", "away_team": "Chelsea", "played": false, "week": 10}, {"home_team": "Porto", "away_team": "Beşiktaş", "played": false, "week": 10}, {"home_team": "Real Madrid", "away_team": "Benfica", "played": false, "week": 10}, {"home_team": "Roma", "away_team": "Barcelona", "played": false, "week": 10}, {"home_team": "Atalanta", "away_team": "Atalanta", "played": false, "week": 10}, {"home_team": "Arsenal", "away_team": "İnter", "played": false, "week": 11}, {"home_team": "Liverpool", "away_team": "Galatasaray", "played": false, "week": 11}, {"home_team": "Manchester City", "away_team": "Fenerbahçe", "played": false, "week": 11}, {"home_team": "Manchester United", "away_team": "Chelsea", "played": false, "week": 11}, {"home_team": "Milan", "away_team": "Beşiktaş", "played": false, "week": 11}, {"home_team": "Napoli", "away_team": "Benfica", "played": false, "week": 11}, {"home_team": "Porto", "away_team": "Barcelona", "played": false, "week": 11}, {"home_team": "Real Madrid", "away_team": "Ajax", "played": false, "week": 11}, {"home_team": "Roma", "away_team": "Atalanta", "played": false, "week": 11}, {"home_team": "Arsenal", "away_team": "Galatasaray", "played": false, "week": 12}, {"home_team": "Juventus", "away_team": "Fenerbahçe", "played": false, "week": 12}, {"home_team": "Liverpool", "away_team": "Chelsea", "played": false, "week": 12}, {"home_team": "Manchester City", "away_team": "Beşiktaş", "played": false, "week": 12}, {"home_team": "Manchester United", "away_team": "Benfica", "played": false, "week": 12}, {"home_team": "Milan", "away_team": "Barcelona", "played": false, "week": 12}, {"home_team": "Napoli", "away_team": "Ajax", "played": false, "week": 12}, {"home_team": "Porto", "away_team": "Atalanta", "played": false, "week": 12}, {"home_team": "Roma", "away_team": "Roma", "played": false, "week": 12}, {"home_team": "Arsenal", "away_team": "Fenerbahçe", "played": false, "week": 13}, {"home_team": "İnter", "away_team": "Chelsea", "played": false, "week": 13}, {"home_team": "Juventus", "away_team": "Beşiktaş", "played": false, "week": 13}, {"home_team": "Liverpool", "away_team": "Benfica", "played": false, "week": 13}, {"home_team": "Manchester City", "away_team": "Barcelona", "played": false, "week": 13}, {"home_team": "Manchester United", "away_team": "Ajax", "played": false, "week": 13}, {"home_team": "Milan", "away_team": "Atalanta", "played": false, "week": 13}, {"home_team": "Porto", "away_team": "Roma", "played": false, "week": 13}, {"home_team": "Real Madrid", "away_team": "Real Madrid", "played": false, "week": 13}, {"home_team": "Arsenal", "away_team": "Chelsea", "played": false, "week": 14}, {"home_team": "Galatasaray", "away_team": "Beşiktaş", "played": false, "week": 14}, {"home_team": "İnter", "away_team": "Benfica", "played": false, "week": 14}, {"home_team": "Juventus", "away_team": "Barcelona", "played": false, "week": 14}, {"home_team": "Liverpool", "away_team": "Ajax", "played": false, "week": 14}, {"home_team": "Manchester City", "away_team": "Atalanta", "played": false, "week": 14}, {"home_team": "Milan", "away_team": "Roma", "played": false, "week": 14}, {"home_team": "Napoli", "away_team": "Real Madrid", "played": false, "week": 14}, {"home_team": "Porto", "away_team": "Porto", "played": false, "week": 14}, {"home_team": "Arsenal", "away_team": "Beşiktaş", "played": false, "week": 15}, {"home_team": "Fenerbahçe", "away_team": "Benfica", "played": false, "week": 15}, {"home_team": "Galatasaray", "away_team": "Barcelona", "played": false, "week": 15}, {"home_team": "İnter", "away_team": "Ajax", "played": false, "week": 15}, {"home_team": "Juventus", "away_team": "Atalanta", "played": false, "week": 15}, {"home_team": "Manchester City", "away_team": "Roma", "played": false, "week": 15}, {"home_team": "Manchester United", "away_team": "Real Madrid", "played": false, "week": 15}, {"home_team": "Milan", "away_team": "Porto", "played": false, "week": 15}, {"home_team": "Napoli", "away_team": "Napoli", "played": false, "week": 15}, {"home_team": "Arsenal", "away_team": "Benfica", "played": false, "week": 16}, {"home_team": "Chelsea", "away_team": "Barcelona", "played": false, "week": 16}, {"home_team": "Fenerbahçe", "away_team": "Ajax", "played": false, "week": 16}, {"home_team": "Galatasaray", "away_team": "Atalanta", "played": false, "week": 16}, {"home_team": "Juventus", "away_team": "Roma", "played": false, "week": 16}, {"home_team": "Liverpool", "away_team": "Real Madrid", "played": false, "week": 16}, {"home_team": "Manchester City", "away_team": "Porto", "played": false, "week": 16}, {"home_team": "Manchester United", "away_team": "Napoli", "played": false, "week": 16}, {"home_team": "Milan", "away_team": "Milan", "played": false, "week": 16}, {"home_team": "Arsenal", "away_team": "Barcelona", "played": false, "week": 17}, {"home_team": "Beşiktaş", "away_team": "Ajax", "played": false, "week": 17}, {"home_team": "Chelsea", "away_team": "Atalanta", "played": false, "week": 17}, {"home_team": "Galatasaray", "away_team": "Roma", "played": false, "week": 17}, {"home_team": "İnter", "away_team": "Real Madrid", "played": false, "week": 17}, {"home_team": "Juventus", "away_team": "Porto", "played": false, "week": 17}, {"home_team": "Liverpool", "away_team": "Napoli", "played": false, "week": 17}, {"home_team": "Manchester City", "away_team": "Milan", "played": false, "week": 17}, {"home_team": "Manchester United", "away_team": "Manchester United", "played": false, "week": 17}, {"home_team": "Arsenal", "away_team": "Ajax", "played": false, "week": 18}, {"home_team": "Benfica", "away_team": "Atalanta", "played": false, "week": 18}, {"home_team": "Chelsea", "away_team": "Roma", "played": false, "week": 18}, {"home_team": "Fenerbahçe", "away_team": "Real Madrid", "played": false, "week": 18}, {"home_team": "Galatasaray", "away_team": "Porto", "played": false, "week": 18}, {"home_team": "İnter", "away_team": "Napoli", "played": false, "week": 18}, {"home_team": "Juventus", "away_team": "Milan", "played": false, "week": 18}, {"home_team": "Liverpool", "away_team": "Manchester United", "played": false, "week": 18}, {"home_team": "Manchester City", "away_team": "Manchester City", "played": false, "week": 18}, {"home_team": "Arsenal", "away_team": "Atalanta", "played": false, "week": 19}, {"home_team": "Benfica", "away_team": "Roma", "played": false, "week": 19}, {"home_team": "Beşiktaş", "away_team": "Real Madrid", "played": false, "week": 19}, {"home_team": "Chelsea", "away_team": "Porto", "played": false, "week": 19}, {"home_team": "Fenerbahçe", "away_team": "Napoli", "played": false, "week": 19}, {"home_team": "Galatasaray", "away_team": "Milan", "played": false, "week": 19}, {"home_team": "İnter", "away_team": "Manchester United", "played": false, "week": 19}, {"home_team": "Juventus", "away_team": "Manchester City", "played": false, "week": 19}, {"home_team": "Liverpool", "away_team": "Liverpool", "played": false, "week": 19}, {"home_team": "Roma", "away_team": "Ajax", "played": false, "week": 20}, {"home_team": "Real Madrid", "away_team": "Barcelona", "played": false, "week": 21}, {"home_team": "Porto", "away_team": "Benfica", "played": false, "week": 22}, {"home_team": "Napoli", "away_team": "Beşiktaş", "played": false, "week": 23}, {"home_team": "Milan", "away_team": "Chelsea", "played": false, "week": 24}, {"home_team": "Manchester United", "away_team": "Fenerbahçe", "played": false, "week": 25}, {"home_team": "Manchester City", "away_team": "Galatasaray", "played": false, "week": 26}, {"home_team": "Liverpool", "away_team": "İnter", "played": false, "week": 27}, {"home_team": "Juventus", "away_team": "Juventus", "played": false, "week": 28}, {"home_team": "Roma", "away_team": "Arsenal", "played": false, "week": 29}]
+
+[
+  {
+    "home_team": "Manchester United",
+    "away_team": "Roma",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Santos",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Psv",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Porto",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "PSG",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 1
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "İnter",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "Milan",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 2
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Roma",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Santos",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Psv",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Porto",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "PSG",
+    "played": false,
+    "week": 3
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "PSG",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "İnter",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "Milan",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 4
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Roma",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Santos",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Psv",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Porto",
+    "played": false,
+    "week": 5
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Porto",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "PSG",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "İnter",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "Milan",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 6
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Roma",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Santos",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Psv",
+    "played": false,
+    "week": 7
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Psv",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Porto",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "PSG",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "İnter",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Milan",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 8
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Roma",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Santos",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 9
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "Psv",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Porto",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "PSG",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "İnter",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Milan",
+    "played": false,
+    "week": 10
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Roma",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Santos",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 11
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "Psv",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Porto",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "PSG",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "İnter",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 12
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Roma",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Milan",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Santos",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 13
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "Psv",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Porto",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "PSG",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "İnter",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 14
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Roma",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Milan",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Santos",
+    "played": false,
+    "week": 15
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Santos",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Psv",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Porto",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "PSG",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "İnter",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 16
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "Roma",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Milan",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 17
+  },
+  {
+    "home_team": "Roma",
+    "away_team": "Leverkusen",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Manchester United",
+    "away_team": "Santos",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Newcastle United",
+    "away_team": "Liverpool",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Juventus",
+    "away_team": "Feyenoord",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Manchester City",
+    "away_team": "Napoli",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Bayern Munih",
+    "away_team": "Psv",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Milan",
+    "away_team": "Porto",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Atalanta",
+    "away_team": "PSG",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Arsenal",
+    "away_team": "Real Madrid",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "Ajax",
+    "away_team": "İnter",
+    "played": false,
+    "week": 18
+  },
+  {
+    "home_team": "İnter",
+    "away_team": "Roma",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Real Madrid",
+    "away_team": "Ajax",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "PSG",
+    "away_team": "Arsenal",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Porto",
+    "away_team": "Atalanta",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Psv",
+    "away_team": "Milan",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Napoli",
+    "away_team": "Bayern Munih",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Feyenoord",
+    "away_team": "Manchester City",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Liverpool",
+    "away_team": "Juventus",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Santos",
+    "away_team": "Newcastle United",
+    "played": false,
+    "week": 19
+  },
+  {
+    "home_team": "Leverkusen",
+    "away_team": "Manchester United",
+    "played": false,
+    "week": 19
+  }
+]

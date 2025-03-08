@@ -6,10 +6,10 @@ from utils import create_round_robin_fixture
 class DataManager:
     def __init__(self):
         self.teams = [
-            "Arsenal", "Atalanta", "Ajax", "Barcelona", "Benfica", "Beşiktaş", 
-            "Chelsea", "Fenerbahçe", "Galatasaray", "İnter", "Juventus", 
-            "Liverpool", "Manchester City", "Manchester United", "Milan", 
-            "Napoli", "Porto", "Real Madrid", "Roma"
+            "Manchester United", "Newcastle United", "Juventus", "Manchester City", 
+            "Bayern Munih", "Milan", "Atalanta", "Arsenal", "Ajax", "İnter", 
+            "Roma", "PSG", "Porto", "Psv", "Napoli", "Feyenoord", "Liverpool", 
+            "Santos", "Leverkusen", "Real Madrid"
         ]
         self.matches = []
         self.fixture = []
