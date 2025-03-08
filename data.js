@@ -104,30 +104,36 @@ function calculatePoints() {
     return standings;
 }
 
-// Rastgele fikstür oluşturucu
+// Round Robin algoritması ile fikstür oluşturma
 function generateFixture() {
-    // Takımları kopyala ve karıştır
-    const shuffledTeams = [...teams].sort(() => Math.random() - 0.5);
+    let teamList = [...teams];
     
-    // Tüm olası eşleşmeleri oluştur
-    const newFixture = [];
-    for (let i = 0; i < shuffledTeams.length; i++) {
-        for (let j = i + 1; j < shuffledTeams.length; j++) {
-            newFixture.push({
-                home_team: shuffledTeams[i],
-                away_team: shuffledTeams[j],
-                played: false
-            });
-            newFixture.push({
-                home_team: shuffledTeams[j],
-                away_team: shuffledTeams[i],
-                played: false
-            });
-        }
+    // Takım sayısı tek ise, bir takım bay geçer
+    if (teamList.length % 2 !== 0) {
+        teamList.push("Bay");
     }
     
-    // Fikstürü karıştır
-    fixture = newFixture.sort(() => Math.random() - 0.5);
+    const n = teamList.length;
+    const newFixture = [];
+    
+    // İlk yarı fikstür (1-19 hafta)
+    for (let round = 0; round < n - 1; round++) {
+        for (let i = 0; i < n / 2; i++) {
+            // Her takım her hafta sadece bir maç oynar
+            newFixture.push({
+                home_team: teamList[i],
+                away_team: teamList[n - 1 - i],
+                played: false,
+                week: round + 1
+            });
+        }
+        
+        // Takımları döndür (ilk takım sabit kalır)
+        teamList = [teamList[0], ...teamList.slice(n - 1), ...teamList.slice(1, n - 1)];
+    }
+    
+    // Fikstürü haftalara göre sırala
+    fixture = newFixture.sort((a, b) => a.week - b.week);
     saveData();
     renderFixture();
 }

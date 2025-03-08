@@ -1,65 +1,60 @@
-import pandas as pd
-from typing import List, Dict
+
 import json
 import os
+from utils import create_round_robin_fixture
 
 class DataManager:
     def __init__(self):
         self.teams = [
-            "Manchester City", "Manchester United", "Arsenal", "Chelsea", "Liverpool",
-            "Benfica", "Juventus", "Milan", "İnter", "Real Madrid",
-            "Barcelona", "Atalanta", "Napoli", "Ajax", "Beşiktaş",
-            "Galatasaray", "Leverkusen", "Roma", "Porto", "Fenerbahçe"
+            "Arsenal", "Atalanta", "Ajax", "Barcelona", "Benfica", "Beşiktaş", 
+            "Chelsea", "Fenerbahçe", "Galatasaray", "İnter", "Juventus", 
+            "Liverpool", "Manchester City", "Manchester United", "Milan", 
+            "Napoli", "Porto", "Real Madrid", "Roma"
         ]
+        self.matches = []
+        self.fixture = []
+        self.load_data()
+    
+    def load_data(self):
+        """Veriyi yerel depolamadan yükler"""
+        if os.path.exists('matches.json'):
+            with open('matches.json', 'r', encoding='utf-8') as f:
+                self.matches = json.load(f)
         
-        # Veri dosyaları
-        self.matches_file = "matches.json"
-        self.fixture_file = "fixture.json"
+        if os.path.exists('fixture.json'):
+            with open('fixture.json', 'r', encoding='utf-8') as f:
+                self.fixture = json.load(f)
+        else:
+            self.generate_new_fixture()
+    
+    def save_data(self):
+        """Veriyi yerel depolamaya kaydeder"""
+        with open('matches.json', 'w', encoding='utf-8') as f:
+            json.dump(self.matches, f, ensure_ascii=False)
         
-        # Veri yapıları
-        self.matches = self._load_matches()
-        self.fixture = self._load_fixture()
+        with open('fixture.json', 'w', encoding='utf-8') as f:
+            json.dump(self.fixture, f, ensure_ascii=False)
     
-    def _load_matches(self) -> List[Dict]:
-        """Maç verilerini yükler"""
-        if os.path.exists(self.matches_file):
-            with open(self.matches_file, 'r') as f:
-                return json.load(f)
-        return []
-    
-    def _load_fixture(self) -> List[Dict]:
-        """Fikstür verilerini yükler"""
-        if os.path.exists(self.fixture_file):
-            with open(self.fixture_file, 'r') as f:
-                return json.load(f)
-        return []
-    
-    def save_matches(self):
-        """Maç verilerini kaydeder"""
-        with open(self.matches_file, 'w') as f:
-            json.dump(self.matches, f)
-    
-    def save_fixture(self):
-        """Fikstür verilerini kaydeder"""
-        with open(self.fixture_file, 'w') as f:
-            json.dump(self.fixture, f)
-    
-    def add_match_result(self, home_team: str, away_team: str, home_goals: int, away_goals: int):
-        """Yeni maç sonucu ekler"""
+    def add_match_result(self, home_team, away_team, home_goals, away_goals):
+        """Maç sonucu ekler"""
         match = {
-            'home_team': home_team,
-            'away_team': away_team,
-            'home_goals': home_goals,
-            'away_goals': away_goals,
-            'played': True
+            "home_team": home_team,
+            "away_team": away_team,
+            "home_goals": home_goals,
+            "away_goals": away_goals
         }
+        
         self.matches.append(match)
-        self.save_matches()
+        
+        # Fikstürde karşılık gelen maçı işaretleme
+        for i in range(len(self.fixture)):
+            if self.fixture[i]["home_team"] == home_team and self.fixture[i]["away_team"] == away_team:
+                self.fixture[i]["played"] = True
+                break
+        
+        self.save_data()
     
     def generate_new_fixture(self):
         """Yeni fikstür oluşturur"""
-        from utils import generate_fixture
-        matches = generate_fixture(self.teams)
-        self.fixture = [{'home_team': home, 'away_team': away, 'played': False} 
-                       for home, away in matches]
-        self.save_fixture()
+        self.fixture = create_round_robin_fixture(self.teams)
+        self.save_data()

@@ -144,13 +144,21 @@ elif menu == "Fikstür":
     # Fikstür gösterimi
     if data_manager.fixture:
         st.write("### Maç Programı")
-        current_week = None
-        for i, match in enumerate(data_manager.fixture, 1):
-            week = (i - 1) // 10 + 1  # Her haftada 10 maç
-            if week != current_week:
-                st.write(f"\n### {week}. Hafta")
-                current_week = week
-            st.write(f"{match['home_team']} 🆚 {match['away_team']}")
+        
+        # Haftalara göre gruplandır
+        fixture_by_week = {}
+        for match in data_manager.fixture:
+            week = match.get('week', 1)  # Eğer week yoksa 1 kabul et
+            if week not in fixture_by_week:
+                fixture_by_week[week] = []
+            fixture_by_week[week].append(match)
+        
+        # Haftaları sırayla göster
+        for week in sorted(fixture_by_week.keys()):
+            with st.expander(f"{week}. Hafta", expanded=(week == 1)):
+                for match in fixture_by_week[week]:
+                    status = "✅" if match.get("played", False) else "⏳"
+                    st.write(f"{status} {match['home_team']} 🆚 {match['away_team']}")
     else:
         st.info("Henüz fikstür oluşturulmamış.")
 

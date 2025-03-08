@@ -278,33 +278,40 @@ function renderFixture() {
     
     fixtureContainer.innerHTML = '';
     
-    // Hafta başına maç sayısı
-    const matchesPerWeek = 10;
-    const weeks = Math.ceil(fixture.length / matchesPerWeek);
+    // Haftalara göre gruplandır
+    const fixtureByWeek = {};
+    fixture.forEach(match => {
+        const week = match.week || 1; // Eğer week yoksa 1 kabul et
+        if (!fixtureByWeek[week]) {
+            fixtureByWeek[week] = [];
+        }
+        fixtureByWeek[week].push(match);
+    });
     
-    for (let week = 0; week < weeks; week++) {
+    // Haftaları sırayla göster
+    const weeks = Object.keys(fixtureByWeek).sort((a, b) => a - b);
+    
+    weeks.forEach(week => {
         const weekFixtureDiv = document.createElement('div');
         weekFixtureDiv.className = 'fixture-week';
-        weekFixtureDiv.innerHTML = `<h3>${week + 1}. Hafta</h3>`;
+        weekFixtureDiv.innerHTML = `<h3>${week}. Hafta</h3>`;
         
-        const weekMatches = fixture.slice(week * matchesPerWeek, (week + 1) * matchesPerWeek);
-        
-        weekMatches.forEach(match => {
+        fixtureByWeek[week].forEach(match => {
             const matchDiv = document.createElement('div');
             matchDiv.className = 'fixture-match';
             
             if (match.played) {
-                matchDiv.textContent = `${match.home_team} 🆚 ${match.away_team} (Oynandı)`;
+                matchDiv.innerHTML = `✅ ${match.home_team} 🆚 ${match.away_team}`;
                 matchDiv.style.color = '#888';
             } else {
-                matchDiv.textContent = `${match.home_team} 🆚 ${match.away_team}`;
+                matchDiv.innerHTML = `⏳ ${match.home_team} 🆚 ${match.away_team}`;
             }
             
             weekFixtureDiv.appendChild(matchDiv);
         });
         
         fixtureContainer.appendChild(weekFixtureDiv);
-    }
+    });
 }
 
 // İstatistikleri render et
