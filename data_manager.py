@@ -13,6 +13,8 @@ class DataManager:
         ]
         self.matches = []
         self.fixture = []
+        self.goal_scorers = []
+        self.assist_makers = []
         self.load_data()
     
     def load_data(self):
@@ -26,6 +28,14 @@ class DataManager:
                 self.fixture = json.load(f)
         else:
             self.generate_new_fixture()
+            
+        if os.path.exists('goal_scorers.json'):
+            with open('goal_scorers.json', 'r', encoding='utf-8') as f:
+                self.goal_scorers = json.load(f)
+        
+        if os.path.exists('assist_makers.json'):
+            with open('assist_makers.json', 'r', encoding='utf-8') as f:
+                self.assist_makers = json.load(f)
     
     def save_data(self):
         """Veriyi yerel depolamaya kaydeder"""
@@ -34,6 +44,12 @@ class DataManager:
         
         with open('fixture.json', 'w', encoding='utf-8') as f:
             json.dump(self.fixture, f, ensure_ascii=False)
+            
+        with open('goal_scorers.json', 'w', encoding='utf-8') as f:
+            json.dump(self.goal_scorers, f, ensure_ascii=False)
+            
+        with open('assist_makers.json', 'w', encoding='utf-8') as f:
+            json.dump(self.assist_makers, f, ensure_ascii=False)
     
     def add_match_result(self, home_team, away_team, home_goals, away_goals):
         """Maç sonucu ekler"""
@@ -63,3 +79,37 @@ class DataManager:
         # Fikstür verilerini kaydet
         self.save_data()
         return len(self.fixture)
+        
+    def add_goal_scorer(self, player_name, team, goals):
+        """Gol kralı listesine yeni oyuncu ekler veya mevcut oyuncunun gol sayısını günceller"""
+        # Eğer oyuncu zaten varsa, gol sayısını güncelle
+        for scorer in self.goal_scorers:
+            if scorer["player_name"] == player_name and scorer["team"] == team:
+                scorer["goals"] = goals
+                self.save_data()
+                return
+        
+        # Yoksa yeni oyuncu ekle
+        self.goal_scorers.append({
+            "player_name": player_name,
+            "team": team,
+            "goals": goals
+        })
+        self.save_data()
+        
+    def add_assist_maker(self, player_name, team, assists):
+        """Asist kralı listesine yeni oyuncu ekler veya mevcut oyuncunun asist sayısını günceller"""
+        # Eğer oyuncu zaten varsa, asist sayısını güncelle
+        for assist_maker in self.assist_makers:
+            if assist_maker["player_name"] == player_name and assist_maker["team"] == team:
+                assist_maker["assists"] = assists
+                self.save_data()
+                return
+        
+        # Yoksa yeni oyuncu ekle
+        self.assist_makers.append({
+            "player_name": player_name,
+            "team": team,
+            "assists": assists
+        })
+        self.save_data()

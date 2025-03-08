@@ -328,14 +328,234 @@ elif menu == "İstatistikler":
     
     st.divider()
     
-    # Oyuncu istatistikleri (ileride eklenebilir)
-    st.write("### Gol Krallığı")
+    # Krallık tabları
+    gol_asist_tabs = st.tabs(["Gol Krallığı", "Asist Krallığı"])
     
-    # Örnek bir gol krallığı verisi (ileride gerçek verilerle değiştirilebilir)
-    if data_manager.matches:
-        st.info("Gol krallığı istatistikleri henüz eklenmemiştir.")
-    else:
-        st.info("Henüz maç oynanmadığı için istatistik bulunmamaktadır.")
+    # Gol Krallığı Tabı
+    with gol_asist_tabs[0]:
+        st.subheader("Gol Krallığı")
+        
+        # Admin mi kontrol et
+        if st.session_state.is_admin:
+            with st.expander("Gol Kralı Ekle/Düzenle"):
+                col1, col2, col3, col4 = st.columns([2, 2, 1, 1])
+                with col1:
+                    player_name = st.text_input("Oyuncu Adı", key="goal_player_name")
+                with col2:
+                    player_team = st.selectbox("Takım", data_manager.teams, key="goal_player_team")
+                with col3:
+                    goals = st.number_input("Gol Sayısı", min_value=0, value=0, key="goals")
+                with col4:
+                    st.write("##")
+                    if st.button("Kaydet", key="save_goal_scorer"):
+                        if player_name and player_team:
+                            data_manager.add_goal_scorer(player_name, player_team, goals)
+                            st.success(f"{player_name} adlı oyuncu {goals} golle kaydedildi.")
+                            st.rerun()
+                        else:
+                            st.error("Oyuncu adı ve takım gereklidir.")
+        
+        # Gol kralları tablosu
+        if data_manager.goal_scorers:
+            # DataFrame oluştur
+            df_scorers = pd.DataFrame(data_manager.goal_scorers)
+            df_scorers = df_scorers.sort_values(by='goals', ascending=False)
+            
+            # Sıra numarası ekle
+            df_scorers.insert(0, 'Sıra', range(1, len(df_scorers) + 1))
+            
+            # Kolon isimlerini Türkçeye çevir
+            df_scorers.columns = ['Sıra', 'Oyuncu', 'Takım', 'Gol']
+            
+            # Süslü tablo gösterimi
+            st.markdown("""
+            <style>
+            .goal-kings-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Arial, sans-serif;
+            }
+            .goal-kings-table th {
+                background-color: #e74c3c;
+                color: white;
+                text-align: center;
+                padding: 8px;
+                font-weight: bold;
+                border: 1px solid #ddd;
+            }
+            .goal-kings-table td {
+                padding: 8px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+            .goal-kings-table tr:first-child {
+                background-color: rgba(231, 76, 60, 0.1);
+                font-weight: bold;
+            }
+            .goal-kings-table tr:nth-child(2) {
+                background-color: rgba(231, 76, 60, 0.05);
+            }
+            .goal-kings-table tr:nth-child(3) {
+                background-color: rgba(231, 76, 60, 0.02);
+            }
+            .player-cell {
+                text-align: left;
+                font-weight: bold;
+            }
+            .team-cell {
+                text-align: left;
+            }
+            .goals-cell {
+                font-weight: bold;
+                color: #e74c3c;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+            
+            # HTML tablosunu oluştur
+            html_table = '<table class="goal-kings-table">'
+            
+            # Tablo başlığı
+            html_table += '''
+            <thead>
+                <tr>
+                    <th>Sıra</th>
+                    <th>Oyuncu</th>
+                    <th>Takım</th>
+                    <th>Gol</th>
+                </tr>
+            </thead>
+            <tbody>
+            '''
+            
+            # Tablo içeriği
+            for i, row in df_scorers.iterrows():
+                html_table += f'<tr>'
+                html_table += f'<td>{row["Sıra"]}</td>'
+                html_table += f'<td class="player-cell">{row["Oyuncu"]}</td>'
+                html_table += f'<td class="team-cell">{row["Takım"]}</td>'
+                html_table += f'<td class="goals-cell">{row["Gol"]}</td>'
+                html_table += '</tr>'
+                
+            html_table += '</tbody></table>'
+            
+            # HTML tablosunu göster
+            st.markdown(html_table, unsafe_allow_html=True)
+        else:
+            st.info("Henüz gol kralı verisi bulunmamaktadır.")
+            
+    # Asist Krallığı Tabı
+    with gol_asist_tabs[1]:
+        st.subheader("Asist Krallığı")
+        
+        # Admin mi kontrol et
+        if st.session_state.is_admin:
+            with st.expander("Asist Kralı Ekle/Düzenle"):
+                col1, col2, col3, col4 = st.columns([2, 2, 1, 1])
+                with col1:
+                    player_name = st.text_input("Oyuncu Adı", key="assist_player_name")
+                with col2:
+                    player_team = st.selectbox("Takım", data_manager.teams, key="assist_player_team")
+                with col3:
+                    assists = st.number_input("Asist Sayısı", min_value=0, value=0, key="assists")
+                with col4:
+                    st.write("##")
+                    if st.button("Kaydet", key="save_assist_maker"):
+                        if player_name and player_team:
+                            data_manager.add_assist_maker(player_name, player_team, assists)
+                            st.success(f"{player_name} adlı oyuncu {assists} asistle kaydedildi.")
+                            st.rerun()
+                        else:
+                            st.error("Oyuncu adı ve takım gereklidir.")
+        
+        # Asist kralları tablosu
+        if data_manager.assist_makers:
+            # DataFrame oluştur
+            df_assists = pd.DataFrame(data_manager.assist_makers)
+            df_assists = df_assists.sort_values(by='assists', ascending=False)
+            
+            # Sıra numarası ekle
+            df_assists.insert(0, 'Sıra', range(1, len(df_assists) + 1))
+            
+            # Kolon isimlerini Türkçeye çevir
+            df_assists.columns = ['Sıra', 'Oyuncu', 'Takım', 'Asist']
+            
+            # Süslü tablo gösterimi
+            st.markdown("""
+            <style>
+            .assist-kings-table {
+                width: 100%;
+                border-collapse: collapse;
+                font-family: Arial, sans-serif;
+            }
+            .assist-kings-table th {
+                background-color: #3498db;
+                color: white;
+                text-align: center;
+                padding: 8px;
+                font-weight: bold;
+                border: 1px solid #ddd;
+            }
+            .assist-kings-table td {
+                padding: 8px;
+                border: 1px solid #ddd;
+                text-align: center;
+            }
+            .assist-kings-table tr:first-child {
+                background-color: rgba(52, 152, 219, 0.1);
+                font-weight: bold;
+            }
+            .assist-kings-table tr:nth-child(2) {
+                background-color: rgba(52, 152, 219, 0.05);
+            }
+            .assist-kings-table tr:nth-child(3) {
+                background-color: rgba(52, 152, 219, 0.02);
+            }
+            .player-cell {
+                text-align: left;
+                font-weight: bold;
+            }
+            .team-cell {
+                text-align: left;
+            }
+            .assists-cell {
+                font-weight: bold;
+                color: #3498db;
+            }
+            </style>
+            """, unsafe_allow_html=True)
+            
+            # HTML tablosunu oluştur
+            html_table = '<table class="assist-kings-table">'
+            
+            # Tablo başlığı
+            html_table += '''
+            <thead>
+                <tr>
+                    <th>Sıra</th>
+                    <th>Oyuncu</th>
+                    <th>Takım</th>
+                    <th>Asist</th>
+                </tr>
+            </thead>
+            <tbody>
+            '''
+            
+            # Tablo içeriği
+            for i, row in df_assists.iterrows():
+                html_table += f'<tr>'
+                html_table += f'<td>{row["Sıra"]}</td>'
+                html_table += f'<td class="player-cell">{row["Oyuncu"]}</td>'
+                html_table += f'<td class="team-cell">{row["Takım"]}</td>'
+                html_table += f'<td class="assists-cell">{row["Asist"]}</td>'
+                html_table += '</tr>'
+                
+            html_table += '</tbody></table>'
+            
+            # HTML tablosunu göster
+            st.markdown(html_table, unsafe_allow_html=True)
+        else:
+            st.info("Henüz asist kralı verisi bulunmamaktadır.")
 
 elif menu == "Detaylı İstatistikler":
     st.header("Detaylı İstatistikler")
