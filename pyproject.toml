@@ -1,10 +1,16 @@
-[project]
-name = "repl-nix-workspace"
+
+[tool.poetry]
+name = "futbol-ligi"
 version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.11"
-dependencies = [
-    "pandas>=2.2.3",
-    "plotly>=6.0.0",
-    "streamlit>=1.43.1",
-]
+description = "Futbol Ligi Yönetim Sistemi"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = ">=3.11,<4.0"
+pandas = "^2.2.3"
+plotly = "^6.0.0"
+streamlit = "^1.43.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
