@@ -38,7 +38,7 @@ with st.sidebar:
 st.title("⚽ Futbol Ligi Yönetim Sistemi")
 
 # Sidebar menü
-menu_options = ["Puan Durumu", "Oynanan Maçlar", "Fikstür", "İstatistikler"]
+menu_options = ["Puan Durumu", "Oynanan Maçlar", "Fikstür", "İstatistikler", "Detaylı İstatistikler"]
 if st.session_state.is_admin:
     menu_options.insert(1, "Maç Sonucu Gir")
 
@@ -63,10 +63,105 @@ if menu == "Puan Durumu":
     )
 
     # Sıra numarası ekleme
-    df_standings.index = range(1, len(df_standings) + 1)
-    df_standings.index.name = 'Sıra'
-
-    st.dataframe(df_standings, use_container_width=True)
+    df_standings.insert(0, 'Sıra', range(1, len(df_standings) + 1))
+    
+    # Maçkolik stilinde CSS ile tablo özelleştirmesi
+    st.markdown("""
+    <style>
+    .mackolik-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-family: Arial, sans-serif;
+    }
+    .mackolik-table th {
+        background-color: #013369;
+        color: white;
+        text-align: center;
+        padding: 8px;
+        font-weight: bold;
+        border: 1px solid #ddd;
+    }
+    .mackolik-table td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: center;
+    }
+    .mackolik-table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+    .team-cell {
+        text-align: left;
+        font-weight: bold;
+    }
+    .point-cell {
+        font-weight: bold;
+        color: #013369;
+    }
+    .top-teams {
+        background-color: rgba(0, 128, 0, 0.1) !important;
+    }
+    .bottom-teams {
+        background-color: rgba(255, 0, 0, 0.1) !important;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+    
+    # HTML tablosunu oluştur
+    html_table = '<table class="mackolik-table">'
+    
+    # Tablo başlığı
+    html_table += '''
+    <thead>
+        <tr>
+            <th>Sıra</th>
+            <th>Takım</th>
+            <th>O</th>
+            <th>G</th>
+            <th>B</th>
+            <th>M</th>
+            <th>A</th>
+            <th>Y</th>
+            <th>Av</th>
+            <th>P</th>
+        </tr>
+    </thead>
+    <tbody>
+    '''
+    
+    # Tablo içeriği
+    for i, row in df_standings.iterrows():
+        # İlk 3 takım ve son 3 takım için özel sınıf ekleme
+        row_class = ""
+        if i < 3:  # İlk 3 takım
+            row_class = "top-teams"
+        elif i >= len(df_standings) - 3 and len(df_standings) > 5:  # Son 3 takım (toplam takım sayısı 6'dan fazlaysa)
+            row_class = "bottom-teams"
+            
+        html_table += f'<tr class="{row_class}">'
+        html_table += f'<td>{row["Sıra"]}</td>'
+        html_table += f'<td class="team-cell">{row["Takım"]}</td>'
+        html_table += f'<td>{row["Oynadığı"]}</td>'
+        html_table += f'<td>{row["Galibiyet"]}</td>'
+        html_table += f'<td>{row["Beraberlik"]}</td>'
+        html_table += f'<td>{row["Mağlubiyet"]}</td>'
+        html_table += f'<td>{row["Attığı Gol"]}</td>'
+        html_table += f'<td>{row["Yediği Gol"]}</td>'
+        html_table += f'<td>{row["Averaj"]}</td>'
+        html_table += f'<td class="point-cell">{row["Puan"]}</td>'
+        html_table += '</tr>'
+        
+    html_table += '</tbody></table>'
+    
+    # HTML tablosunu göster
+    st.markdown(html_table, unsafe_allow_html=True)
+    
+    # Açıklama
+    st.markdown("""
+    <div style="margin-top: 10px; font-size: 12px;">
+        <span style="background-color: rgba(0, 128, 0, 0.1); padding: 2px 5px;">■</span> Üst sıralama
+        <span style="margin-left: 20px; background-color: rgba(255, 0, 0, 0.1); padding: 2px 5px;">■</span> Alt sıralama
+    </div>
+    """, unsafe_allow_html=True)
 
 elif menu == "Oynanan Maçlar":
     st.header("Oynanan Maçlar")
@@ -191,6 +286,58 @@ elif menu == "Fikstür":
         st.info("Henüz fikstür oluşturulmamış.")
 
 elif menu == "İstatistikler":
+    st.header("İstatistikler")
+    
+    # İstatistik hesaplama
+    standings = calculate_points(data_manager.matches, data_manager.teams)
+    df_stats = pd.DataFrame.from_dict(standings, orient='index').reset_index()
+    df_stats.columns = ['Takım', 'Puan', 'Oynadığı', 'Galibiyet', 'Beraberlik',
+                       'Mağlubiyet', 'Attığı Gol', 'Yediği Gol', 'Averaj']
+    
+    # Sıralama işlemi
+    df_stats = df_stats.sort_values(
+        by=['Puan', 'Averaj', 'Attığı Gol'],
+        ascending=[False, False, False]
+    )
+    
+    # İstatistik kartları
+    col1, col2, col3, col4 = st.columns(4)
+    
+    with col1:
+        st.metric("En Çok Gol Atan Takım", 
+                 df_stats.iloc[0]['Takım'] if not df_stats.empty else "-", 
+                 df_stats.iloc[0]['Attığı Gol'] if not df_stats.empty else 0)
+    
+    with col2:
+        top_defense = df_stats.sort_values(by='Yediği Gol', ascending=True)
+        st.metric("En Az Gol Yiyen Takım", 
+                 top_defense.iloc[0]['Takım'] if not top_defense.empty else "-", 
+                 top_defense.iloc[0]['Yediği Gol'] if not top_defense.empty else 0)
+    
+    with col3:
+        top_winner = df_stats.sort_values(by='Galibiyet', ascending=False)
+        st.metric("En Çok Galibiyet Alan", 
+                 top_winner.iloc[0]['Takım'] if not top_winner.empty else "-", 
+                 top_winner.iloc[0]['Galibiyet'] if not top_winner.empty else 0)
+    
+    with col4:
+        top_draw = df_stats.sort_values(by='Beraberlik', ascending=False)
+        st.metric("En Çok Beraberlik Yapan", 
+                 top_draw.iloc[0]['Takım'] if not top_draw.empty else "-", 
+                 top_draw.iloc[0]['Beraberlik'] if not top_draw.empty else 0)
+    
+    st.divider()
+    
+    # Oyuncu istatistikleri (ileride eklenebilir)
+    st.write("### Gol Krallığı")
+    
+    # Örnek bir gol krallığı verisi (ileride gerçek verilerle değiştirilebilir)
+    if data_manager.matches:
+        st.info("Gol krallığı istatistikleri henüz eklenmemiştir.")
+    else:
+        st.info("Henüz maç oynanmadığı için istatistik bulunmamaktadır.")
+
+elif menu == "Detaylı İstatistikler":
     st.header("Detaylı İstatistikler")
 
     # İstatistik hesaplama
