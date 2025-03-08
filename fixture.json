@@ -1,4 +1,3 @@
-
 [
   {
     "home_team": "Manchester United",
@@ -44,7 +43,7 @@
   },
   {
     "home_team": "Arsenal",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 1
   },
@@ -73,7 +72,7 @@
     "week": 2
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Ajax",
     "played": false,
     "week": 2
@@ -170,7 +169,7 @@
   },
   {
     "home_team": "İnter",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 3
   },
@@ -187,7 +186,7 @@
     "week": 4
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Real Madrid",
     "played": false,
     "week": 4
@@ -296,13 +295,13 @@
   },
   {
     "home_team": "PSG",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 5
   },
   {
     "home_team": "Roma",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 6
   },
@@ -415,7 +414,7 @@
     "week": 7
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Psv",
     "played": false,
     "week": 7
@@ -428,7 +427,7 @@
   },
   {
     "home_team": "Napoli",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 8
   },
@@ -529,7 +528,7 @@
     "week": 9
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Feyenoord",
     "played": false,
     "week": 9
@@ -554,7 +553,7 @@
   },
   {
     "home_team": "Liverpool",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 10
   },
@@ -643,7 +642,7 @@
     "week": 11
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Santos",
     "played": false,
     "week": 11
@@ -680,7 +679,7 @@
   },
   {
     "home_team": "Leverkusen",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 12
   },
@@ -757,7 +756,7 @@
     "week": 13
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Manchester United",
     "played": false,
     "week": 13
@@ -806,7 +805,7 @@
   },
   {
     "home_team": "Newcastle United",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 14
   },
@@ -871,7 +870,7 @@
     "week": 15
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Juventus",
     "played": false,
     "week": 15
@@ -932,7 +931,7 @@
   },
   {
     "home_team": "Manchester City",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 16
   },
@@ -985,7 +984,7 @@
     "week": 17
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Bayern Munih",
     "played": false,
     "week": 17
@@ -1058,7 +1057,7 @@
   },
   {
     "home_team": "Milan",
-    "away_team": "Porto",
+    "away_team": "Dortmund",
     "played": false,
     "week": 18
   },
@@ -1099,7 +1098,7 @@
     "week": 19
   },
   {
-    "home_team": "Porto",
+    "home_team": "Dortmund",
     "away_team": "Atalanta",
     "played": false,
     "week": 19

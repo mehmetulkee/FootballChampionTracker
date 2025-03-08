@@ -8,7 +8,7 @@ class DataManager:
         self.teams = [
             "Manchester United", "Newcastle United", "Juventus", "Manchester City", 
             "Bayern Munih", "Milan", "Atalanta", "Arsenal", "Ajax", "İnter", 
-            "Roma", "PSG", "Porto", "Psv", "Napoli", "Feyenoord", "Liverpool", 
+            "Roma", "PSG", "Dortmund", "Psv", "Napoli", "Feyenoord", "Liverpool", 
             "Santos", "Leverkusen", "Real Madrid"
         ]
         self.matches = []
