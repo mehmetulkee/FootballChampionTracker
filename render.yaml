@@ -4,7 +4,7 @@ services:
     name: futbol-ligi
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: streamlit run main.py --server.port=$PORT --server.address=0.0.0.0
+    startCommand: streamlit run main.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true --server.enableCORS=false
     envVars:
       - key: PORT
         value: 8080
